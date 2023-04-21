@@ -44,7 +44,7 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
         hass, entry.unique_id, await connect_async(ble_device, scan_now=False)
     )
 
-    hass.config_entries.async_setup_platforms(entry, PLATFORMS)
+    hass.config_entries.async_forward_entry_setups(entry, PLATFORMS)
 
     return True
 
